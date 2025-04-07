@@ -4,15 +4,13 @@ import AlumnoController from "../controllers/alumnos";
 const alumnoController = new AlumnoController();
 
 class AlumnosHttpHandler {
-    getAllAlumnos(req: Request, res: Response, next: NextFunction) {
-        (async () => {
-            try {
-                const alumnos = await alumnoController.getAllAlumnos();
-                res.json(alumnos);
-            } catch (error) {
-                next(error);
-            }
-        })();
+    async getAllAlumnos(req: Request, res: Response, next: NextFunction) {
+        try {
+            const alumnos = await alumnoController.getAllAlumnos();
+            res.json(alumnos);
+        } catch (error) {
+            next(error);
+        }
     }
 }
 

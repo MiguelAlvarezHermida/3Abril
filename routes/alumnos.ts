@@ -1,10 +1,10 @@
 import express from 'express';
-import alumnosHttpHandler from '.../handlers/alumnos.ts';
+import AlumnosHttpHandler from '../handlers/alumnos';
 
 const router = express.Router();
 
-const  alumnosHttpHandler = new alumnosHttpHandler();
+const  alumnosHttpHandler = new AlumnosHttpHandler();
 
-router.get('/', alumnosHttpHandler.getAllAlumnos());
+router.get('/', (req, res, next) => alumnosHttpHandler.getAllAlumnos(req, res, next));
 
 export default router;
